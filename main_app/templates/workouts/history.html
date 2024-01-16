@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Workout History</h1>
+{% for workout in workouts %}
+<div>
+    <a href="{% url 'workout_detail' workout.id %}">
+        <p>Workout: {{workout.name}}</p>
+        <p>Date: {{workout.date}}</p>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock %}

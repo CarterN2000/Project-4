@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if object %}
+<h1>Edit Workout</h1>
+{% else %}
+<h1>Start New Workout!</h1>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    {% if object %}
+    <input type="submit" value="Submit Changes">
+    {% else %}
+    <input type="submit" value="Continue to Exercises">
+    {% endif %}
+</form>
+
+{% endblock %}

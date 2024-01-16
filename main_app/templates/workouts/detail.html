@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Detail Page</h1>
+<div>
+    <div>{{workout.name}}</div>
+    <p>Completed On: {{workout.date}}</p>
+</div>
+<div>
+    <a href="{% url 'update_workout' workout.id %}">Edit</a>
+    <a href="{% url 'delete_workout' workout.id %}">Delete</a>
+</div>
+<div>
+    <form action="{% url 'add_exercise' workout.id %}" method="POST">
+        {% csrf_token %}
+        {{exercise_form.as_p}}
+        <input type="submit" value="Add Exercise">
+    </form>
+    <table>
+        <thead>
+            <tr><th>Exercise</th><th>Sets</th></tr><tr><th>Reps</th><th>Weight</th></tr>
+        </thead>
+        {% for exercise in workout.exercise_set.all %}
+        <tr>
+            <td>{{exercise.name}}</td>
+            <td>{{exercise.sets}}</td>
+            <td>{{exercise.reps}}</td>
+            <td>{{exercise.weight}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
