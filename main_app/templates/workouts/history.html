@@ -5,8 +5,7 @@
 {% for workout in workouts %}
 <div>
     <a href="{% url 'workout_detail' workout.id %}">
-        <p>Workout: {{workout.name}}</p>
-        <p>Date: {{workout.date}}</p>
+        <p>{{workout.name}} on {{workout.date}}</p>
     </a>
 </div>
 {% endfor %}
