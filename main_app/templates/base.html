@@ -13,10 +13,19 @@
         <nav>
             <div>Progressive Over-Achieving!</div>
             <ul>
-                <li><a href="{% url 'create_workout' %}">Create Workout</a></li>
-                <li><a href="{% url 'history' %}">Workout History</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'home' %}">Login</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'create_workout' %}">Create Workout</a></li>
+                    <li><a href="{% url 'history' %}">Workout History</a></li>
+                    <!-- <li><a href="{% url 'logout' %}">Logout</a></li> -->
+                    <form action="{% url 'logout' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">Log Out</button>
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

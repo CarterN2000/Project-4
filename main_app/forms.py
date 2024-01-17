@@ -9,7 +9,7 @@ class ExerciseForm(ModelForm):
 class CreateWorkoutForm(ModelForm):
     class Meta:
         model = Workout
-        fields = '__all__'
+        fields = ['name', 'date']
         widgets= {
          'date': DateInput(attrs={'type': 'date'}),
          }
