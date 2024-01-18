@@ -20,7 +20,7 @@ def about(request):
 
 @login_required
 def history(request):
-    workouts = Workout.objects.filter(user=request.user)
+    workouts = Workout.objects.filter(user=request.user).order_by('-date')
     return render(request, 'workouts/history.html', {
         'workouts': workouts
     })
@@ -116,7 +116,7 @@ class CreateWorkout(LoginRequiredMixin, CreateView):
 
 class UpdateWorkout(LoginRequiredMixin, UpdateView):
     model = Workout
-    fields = '__all__'
+    fields = ['name', 'date']
 
 class DeleteWorkout(LoginRequiredMixin, DeleteView):    
     model = Workout

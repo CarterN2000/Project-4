@@ -1,28 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Detail Page</h1>
+<h1>{{workout.name}}</h1>
+<p>Completed On: {{workout.date}}</p>
+
 <div>
-    <div>{{workout.name}}</div>
-    <p>Completed On: {{workout.date}}</p>
-</div>
-<div>
+    <h6>Add the Exercises from your workout below:</h6>
     <form action="{% url 'add_exercise' workout.id %}" method="POST">
         {% csrf_token %}
-        {{exercise_form.as_p}}
-        <input type="submit" value="Add Exercise">
-    </form>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Exercise</th>
-                <th scope="col">Sets</th>
-                <th scope="col">Reps</th>
-                <th scope="col">Weight</th>
-            </tr>
-            
-        </thead>
-        <tbody>
+        <div class="exercise-form-container">
+            <label for='{{exercise_form.name}}' class="col-sm-2 col-form-label">Name:</label>
+            {{exercise_form.name}}
+        </div>
+        <div class="exercise-form-container">
+            <label for='{{exercise_form.sets}}' class="col-sm-2 col-form-label">Sets:</label>
+            {{exercise_form.sets}}
+        </div>
+        <div class="exercise-form-container">
+            <label for='{{exercise_form.reps}}' class="col-sm-2 col-form-label">Reps:</label>
+            {{exercise_form.reps}}
+        </div>
+        <div class="exercise-form-container">
+            <label for='{{exercise_form.weight}}' class="col-sm-2 col-form-label">Weight:</label>
+            {{exercise_form.weight}}
+        </div>
+        <div class="add-exercise">
+            <input type="submit" value="Add Exercise" class="btn btn-secondary" id="add-exercise-button">
+        </div>
+    </form> <br>
+</div>
+<table class="table table-striped exercise-list">
+    <thead>
+        <tr>
+            <th scope="col">Exercise</th>
+            <th scope="col">Sets</th>
+            <th scope="col">Reps</th>
+            <th scope="col">Weight</th>
+        </tr>
+
+    </thead>
+    <tbody>
         {% for exercise in workout.exercise_set.all %}
         <tr>
             <td>{{exercise.name}}</td>
@@ -31,35 +48,37 @@
             <td>{{exercise.weight}}</td>
         </tr>
         {% endfor %}
-        </tbody>
-    </table>
-
+    </tbody>
+</table>
+<div id="milestone-div">
     <form action="{% url 'find_exercise_max' workout.id %}" method="GET">
-        <input type="text"  name="q" placeholder="Search for exercise to find your goals for today!">
-        <button type="submit">Find Milestones</button>
+        <input type="text" name="q" class="milestone-searchbar" placeholder="Search for exercise to find your goals for today!">
+        <button type="submit" id="milestone-button" class="btn btn-primary">Find Milestones</button>
     </form>
-    <div>
+</div>
+<div class="advice-container">
     {% if best_exercise %}
-        <div>Your highest weight ever done on {{best_exercise}} was {{best_exercise.weight}}</div>
+    <div>Your highest weight ever done on {{best_exercise}} was {{best_exercise.weight}}</div>
     {% endif %}
 
     {% if best_reps_exercise %}
-        <div>Your highest weight for atleast 6 reps on {{best_reps_exercise}} was: {{best_reps_exercise.reps}} reps of {{best_reps_exercise.weight}}</div>
+    <div>Your highest weight for atleast 6 reps on {{best_reps_exercise}} was: {{best_reps_exercise.reps}} reps of
+        {{best_reps_exercise.weight}}</div>
     {% endif %}
-    
+
     {% if messages %}
-        <div>     
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
-    {% endif %}
-    </div>
-    
     <div>
-        <a href="{% url 'update_workout' workout.id %}">Edit</a>
-        <a href="{% url 'delete_workout' workout.id %}">Delete</a>
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
     </div>
+    {% endif %}
+</div> <br>
+
+<div class="update-workout">
+    <a role="button" class="btn btn-warning update-button" href="{% url 'update_workout' workout.id %}">Edit</a>
+    <a role="button" class="btn btn-danger update-button" href="{% url 'delete_workout' workout.id %}">Delete</a>
 </div>
-    
-{% endblock %}
+
+
+{% endblock %} 

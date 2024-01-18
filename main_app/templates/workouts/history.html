@@ -2,12 +2,22 @@
 {% block content %}
 
 <h1>Workout History</h1>
-{% for workout in workouts %}
-<div>
-    <a href="{% url 'workout_detail' workout.id %}">
-        <p>{{workout.name}} on {{workout.date}}</p>
-    </a>
-</div>
-{% endfor %}
-
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Date of Workout</th>
+            <th scope="col">Name of Workout</th>
+            <th scope="col">Workout Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for workout in workouts %}
+            <tr>
+                <td>{{workout.date}}</td>
+                <td>{{workout.name}}</td>
+                <td><a href="{% url 'workout_detail' workout.id %}">Details</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
