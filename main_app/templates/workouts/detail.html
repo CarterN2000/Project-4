@@ -12,10 +12,17 @@
         {{exercise_form.as_p}}
         <input type="submit" value="Add Exercise">
     </form>
-    <table>
+    <table class="table table-striped">
         <thead>
-            <tr><th>Exercise</th><th>Sets</th></tr><tr><th>Reps</th><th>Weight</th></tr>
+            <tr>
+                <th scope="col">Exercise</th>
+                <th scope="col">Sets</th>
+                <th scope="col">Reps</th>
+                <th scope="col">Weight</th>
+            </tr>
+            
         </thead>
+        <tbody>
         {% for exercise in workout.exercise_set.all %}
         <tr>
             <td>{{exercise.name}}</td>
@@ -24,13 +31,14 @@
             <td>{{exercise.weight}}</td>
         </tr>
         {% endfor %}
+        </tbody>
     </table>
 
     <form action="{% url 'find_exercise_max' workout.id %}" method="GET">
         <input type="text"  name="q" placeholder="Search for exercise to find your goals for today!">
         <button type="submit">Find Milestones</button>
     </form>
-
+    <div>
     {% if best_exercise %}
         <div>Your highest weight ever done on {{best_exercise}} was {{best_exercise.weight}}</div>
     {% endif %}
@@ -46,7 +54,8 @@
             {% endfor %}
         </div>
     {% endif %}
-
+    </div>
+    
     <div>
         <a href="{% url 'update_workout' workout.id %}">Edit</a>
         <a href="{% url 'delete_workout' workout.id %}">Delete</a>

@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-nav-container {
+    margin: 2vh;
+    color: red;
+    border: 1px solid blue;
+
+}
+
+body {
+    background-color: red;
+}

@@ -72,6 +72,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+@login_required
 def get_max_exercises(request, workout_id):
     query = request.GET.get('q')
     exercises = Exercise.objects.filter(
