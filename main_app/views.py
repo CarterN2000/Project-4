@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.urls import reverse
 from .models import Workout, Exercise
-from .forms import CreateWorkoutForm, ExerciseForm
+from .forms import CreateWorkoutForm, ExerciseForm, UpdateWorkoutForm
 
 # Create your views here.
 
@@ -116,7 +116,7 @@ class CreateWorkout(LoginRequiredMixin, CreateView):
 
 class UpdateWorkout(LoginRequiredMixin, UpdateView):
     model = Workout
-    fields = ['name', 'date']
+    form_class = UpdateWorkoutForm
 
 class DeleteWorkout(LoginRequiredMixin, DeleteView):    
     model = Workout

@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Delete Workout</h1>
+  <div>
+    <h1>Delete Workout</h1>
 
-  <h4>Are you sure you want to delete <span>{{ object.name }}</span>?</h4>
+    <h5>Are you sure you want to delete <span>{{ object.name }}</span>?</h5>
 
-  <form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Yes - Delete!">
-    <a href="{% url 'workout_detail' workout.id %}">Cancel</a>
-  </form>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-danger" id="delete-workout-button" value="Remove Workout">
+      <a href="{% url 'workout_detail' workout.id %}">Cancel</a>
+    </form>
+  </div>
 {% endblock %}

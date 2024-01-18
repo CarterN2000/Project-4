@@ -9,14 +9,22 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
+        {{form.as_p}}
     {% if object %}
-    <input type="submit" value="Submit Changes">
+    <input type="submit" class="btn btn-success" value="Submit Changes">
     {% else %}
-    <input type="submit" value="Continue to Exercises">
+    <input type="submit" class="btn btn-success" value="Continue to Exercises">
     {% endif %}
 </form>
 
 {% endblock %}
+
+<!-- {% csrf_token %}
+<table>
+    {{form.as_table}}
+</table>
+{% if object %}
+<input type="submit" value="Submit Changes">
+{% else %}
+<input type="submit" value="Continue to Exercises">
+{% endif %} -->

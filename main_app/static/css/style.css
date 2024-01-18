@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+.entire-body {
     /* height: 100vh;
     background: rgb(105,105,105);
     background: linear-gradient(0deg, rgba(105,105,105,1) 0%, rgba(168,168,168,1) 100%); */
@@ -69,6 +69,24 @@ body {
     margin: 3vh;
     font-size: large;
     width: fit-content;
+}
+
+#delete-workout-button {
+    margin-right: 1rem;
+}
+
+.history-table {
+    background-color: #fff;
+    border: .75vh solid black;
+}
+
+#logout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
 }
 
 

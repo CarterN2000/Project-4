@@ -17,8 +17,21 @@ class CreateWorkoutForm(ModelForm):
         model = Workout
         fields = ['name', 'date']
         widgets= {
-         'date': DateInput(attrs={
-             'type': 'date',
-
-             }),
+            'date': DateInput(attrs={
+                'type': 'date',
+                'class': 'form-control'
+                }),
+            'name': TextInput(attrs={'class': 'form-control'}),
          }
+
+class UpdateWorkoutForm(ModelForm):
+    class Meta:
+        model = Workout
+        fields = ['name', 'date']
+        widgets= {
+            'date': DateInput(attrs={
+                'type': 'date',
+                'class': 'form-control'
+                }),
+            'name': TextInput(attrs={'class': 'form-control'}),
+    }
