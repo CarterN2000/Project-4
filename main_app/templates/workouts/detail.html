@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{workout.name}}</h1>
+<h1 class="styled-word-2">{{workout.name}}</h1>
 <p>Completed On: {{workout.date}}</p>
 
 <div>
@@ -58,16 +58,16 @@
 </div>
 <div class="advice-container">
     {% if best_exercise %}
-    <div>Your highest weight ever done on {{best_exercise}} was {{best_exercise.weight}}</div>
+    <div class="styled-word-2" id="font-size-12">Your highest weight ever done on {{best_exercise}} was {{best_exercise.weight}}</div>
     {% endif %}
 
     {% if best_reps_exercise %}
-    <div>Your highest weight for atleast 6 reps on {{best_reps_exercise}} was: {{best_reps_exercise.reps}} reps of
+    <div class="styled-word-2" id="font-size-12">Your highest weight for atleast 6 reps on {{best_reps_exercise}} was: {{best_reps_exercise.reps}} reps of
         {{best_reps_exercise.weight}}</div>
     {% endif %}
 
     {% if messages %}
-    <div>
+    <div class="styled-word-2" id="font-size-12">
         {% for message in messages %}
         {{ message }}
         {% endfor %}
