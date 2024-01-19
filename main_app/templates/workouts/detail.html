@@ -52,7 +52,7 @@
 </table>
 <div id="milestone-div">
     <form action="{% url 'find_exercise_max' workout.id %}" method="GET">
-        <input type="text" name="q" class="milestone-searchbar" placeholder="Search for exercise to find your goals for today!">
+        <input type="text" name="q" class="milestone-searchbar" id="searchbar-width" placeholder="Search for exercise to find your goals for today!">
         <button type="submit" id="milestone-button" class="btn btn-primary">Find Milestones</button>
     </form>
 </div>

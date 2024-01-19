@@ -11,16 +11,16 @@
 
 .styled-word {
     font-family: 'Rock Salt', 'sans-serif';
-    font-size: 24px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     margin: 1.5vh 0vh;
 }
 
 .styled-word-2 {
     font-family: 'Courier Prime', monospace;
-    font-size: 30px; 
+    font-size: 30px;
     margin: 1.5vh 0vh;
 }
 
@@ -41,9 +41,9 @@
 }
 
 .main-nav-container {
-    background-color:#FCCC47;
+    background-color: #FCCC47;
     padding: .5vh 0vh;
-    margin-bottom: 1vh ;
+    margin-bottom: 1vh;
 }
 
 .main-nav {
@@ -55,7 +55,7 @@
 }
 
 .navbar-item {
-    margin: 0vh 2vh;
+    margin: 0vh 1.5vh;
     font-weight: 800;
 }
 
@@ -67,7 +67,7 @@
     margin-right: auto;
 }
 
-.exercise-form > .add-exercise{
+.exercise-form>.add-exercise {
     align-content: center;
 }
 
@@ -85,6 +85,7 @@
 .update-workout {
     display: flex;
     justify-content: center;
+    margin-bottom: 3vh;
 }
 
 .update-button {
@@ -134,7 +135,7 @@
     background-color: white;
     border-radius: 1rem;
     padding: 1vh 2vh;
-    width: fit-content;
+    width: 100%;
 }
 
 .dropdown-row {
@@ -144,8 +145,12 @@
     text-align: center;
 }
 
+.expand-button {
+    margin-left: auto;
+}
+
 .resource-text {
-    margin: 0vh 5vh 0vh 0vh;
+    margin: 0vh .1vh 0vh 0vh;
 }
 
 #milestone-div {
@@ -155,7 +160,22 @@
     justify-content: center;
 }
 
+.text-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2vh;
+    color: white;
+    text-align: center;
+    border-radius: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .home-page {
+    height: auto;
+    width: 100%;
+    position: relative;
     border-radius: 2vh;
 }
 
@@ -163,23 +183,61 @@
     width: 100%;
     height: auto;
     border-radius: 2vh;
+    display: block;
+}
+
+.resource-text-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1vh;
+    color: white;
+    text-align: center;
+    align-self: center;
+    border-radius: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
 }
 
 .resource-image {
-    width: 30%;
+    width: 50%;
     height: auto;
     border-radius: 2vh;
     margin-left: 3vh;
 }
 
 .resource-image-container {
+    height: auto;
+    width: 100%;
+    position: relative;
+    border-radius: 2vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin: 2vh 0vh;
 }
 
+@media (max-width: 768px) {
 
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .resource-text {
+        font-size: medium;
+    }
+
+    .milestone-div {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    #searchbar-width {
+       width: 30vh;
+    }
+}
 
 
 
@@ -208,43 +266,43 @@
 .milestone-searchbar::-ms-expand {
     background-color: transparent;
     border: 0;
-  }
-  
-  .milestone-searchbar:focus {
+}
+
+.milestone-searchbar:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-  
-  .milestone-searchbar::-webkit-input-placeholder {
+}
+
+.milestone-searchbar::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1;
-  }
-  
-  .milestone-searchbar::-moz-placeholder {
+}
+
+.milestone-searchbar::-moz-placeholder {
     color: #6c757d;
     opacity: 1;
-  }
-  
-  .milestone-searchbar:-ms-input-placeholder {
+}
+
+.milestone-searchbar:-ms-input-placeholder {
     color: #6c757d;
     opacity: 1;
-  }
-  
-  .milestone-searchbar::-ms-input-placeholder {
+}
+
+.milestone-searchbar::-ms-input-placeholder {
     color: #6c757d;
     opacity: 1;
-  }
-  
-  .milestone-searchbar::placeholder {
+}
+
+.milestone-searchbar::placeholder {
     color: #6c757d;
     opacity: 1;
-  }
-  
-  .milestone-searchbar:disabled, .form-control[readonly] {
+}
+
+.milestone-searchbar:disabled,
+.form-control[readonly] {
     background-color: #e9ecef;
     opacity: 1;
-  }
-  
+}
