@@ -119,6 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Extra places for collectstatic to find static files.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
@@ -131,3 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Django Deployment on Heroku
 import django_on_heroku
 django_on_heroku.settings(locals())
+
+ALLOWED_HOSTS = ['progressive-overachieving.herokuapp.com'] 
